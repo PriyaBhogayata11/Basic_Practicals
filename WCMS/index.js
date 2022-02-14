@@ -1,14 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-
 const webController = require('./controllers/webcontroller.js');
 
-const urlEncoded = bodyParser.urlencoded({ extended: false });
+
+
 
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './views/pages');
+
+app.use(
+    bodyParser.urlencoded({
+        extended: false,
+    })
+);
 
 
 require('./configuration/database');
